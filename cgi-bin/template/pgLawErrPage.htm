@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Law Error Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+<body bgcolor=#FFFFFF>
+%% INCLUDE pmStyle.htm %%
+
+
+
+<table width=600 align=center border=0>
+<tr><td align=center>
+<br><br>
+      %% INCLUDE Error0 if="error_no==0"%% %% INCLUDE Error1 if="error_no==1"%% 
+      %% INCLUDE Error2 if="error_no==2"%%</td>
+  </tr>
+<tr><td align=center>
+<br><br>
+<p><a href="javascript:history.back()">返回</a></p>
+</td></tr>
+</table>
+
+
+
+<p>%% BLOCK Error0 %% </p>
+<p>对不起，请您填写辅库类别!</p>
+%% ENDBLOCK %% %% BLOCK Error1 %% 
+<p>对不起，没有找到您要找的信息!</p>
+%% ENDBLOCK %% %% BLOCK Error2 %% 
+<p>对不起，无权访问!</p>
+%% ENDBLOCK %% %% INCLUDE pmBottom.htm %% 
+</body>
+</html>

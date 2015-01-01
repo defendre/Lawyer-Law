@@ -1,0 +1,77 @@
+<html>
+
+<head>
+
+<title>信息录入</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Pragma" content="no-cache"> 
+</head><body bgcolor="#FFFFFF">
+
+%% INCLUDE in_pmStyle.htm %%
+
+
+
+
+
+
+
+<form method="post" action="in_law.pl" enctype="multipart/form-data">
+
+  <table width=600 border="0" align="center">
+
+    <tr>
+
+      <td align="center">
+        <p>信息录入/Info Input</p>
+      </td>
+
+    </tr>
+
+  </table>
+
+%% INCLUDE in_pmLawInfo.htm %%
+
+  <table width="600" border="0" align="center">
+
+    <tr> 
+
+      <td align="center">
+
+      <input type="hidden" name="cmd" value="add">
+
+      <input type="submit" name="Submit" value="添  加">
+
+      <input type="reset" name="Reset" value="重  填">
+        <input type="button" value="上载图片" onClick="set_file();" name="button">
+        <small> 
+        <script language="JavaScript" type="text/JavaScript">
+ 
+function set_file() 
+{ 
+
+if (up1.style.display != 'none') 
+{ 
+up1.style.display ='none'; 
+up2.style.display ='none'; 
+} 
+else 
+{ 
+up1.style.display ='inline'; 
+up2.style.display ='inline'; 
+} 
+
+} 
+</script>
+        </small> </td>
+
+    </tr>
+
+  </table>
+
+</form>
+
+</body>
+
+</html>
+

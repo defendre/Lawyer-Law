@@ -1,0 +1,64 @@
+<script language=javascript>
+
+function doSelectA()
+{
+	var p = document.forms[0].sel_area.options[document.forms[0].sel_area.selectedIndex].value;
+	document.forms[0].area.value = p;
+  	location = "/inside-cgi/in_showsearch.pl?typ=2&area=" + p +"&law=1" +"&own=" + %% own %%;
+}
+
+</script>
+
+<table width=762 border="0" align="center">
+  <tr> 
+    <td align="right" height="24"><small>First Area/主库类别:</small></td>
+    <td height="24"> 
+      <input type="text" name="area" value="%%area%%">
+      <select name="sel_area" onChange="doSelectA()">
+        <option value="">全部 %% bigarealine %% 
+      </select>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right"><small>Second Area/辅库类别:</small></td>
+    <td> 
+      <input type="text" name="type" value="%%type%%">
+      <script language=JavaScript>
+function doSelect()
+{
+	var p = document.forms[0].sel_type.options[document.forms[0].sel_type.selectedIndex].value;
+	document.forms[0].type.value = p;
+}
+</script>
+      <select name="sel_type" onChange="doSelect();">
+        <option value="">或选择.... %% lawnameline %% 
+      </select>
+      <br>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right"><small>First Keyword/主关键字:</small></td>
+    <td> 
+      <textarea name="title" cols="60" rows="2" wrap="VIRTUAL" >%%title%%</textarea>
+      <br>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right" height="34"><small>Second Keyword/副关键字:</small></td>
+    <td height="34"> 
+      <textarea name="keyword" cols="60" rows="2" wrap="VIRTUAL">%%keyword%%</textarea>
+ 
+     </td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top"><small>Content/正文:<small></small></small></td>
+    <td> 
+      <textarea name="content" cols="60" rows="25" >%%content%%</textarea>
+    </td>
+  </tr>
+   <tr> 
+<td ><div align="right"><small> Up Load/上载图片:</small></div></td> 
+<td ><input type="file" name="FILE_NAME" value="%%file%%" size="50"> <br></td> 
+</tr> 
+
+</table>

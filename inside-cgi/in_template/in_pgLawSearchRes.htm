@@ -1,0 +1,60 @@
+<html>
+
+<head>
+
+<title>信息查询结果</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+
+%% INCLUDE in_pmStyle.htm %%
+<p>信息查询结果(共有%%resultsum%%条记录):%%INCLUDE noneuplink if="start == 1"%%
+%%INCLUDE uplink1 if="start != 1 && Statf == 1"%%
+%%INCLUDE uplink if="start != 1 && Statf == 0"%%|%%INCLUDE nonedownlink if="downlink == 0"%%%% INCLUDE downlink 
+if="downlink == 1"%%</p>
+
+<table width="100%" border="1" bgColor="#EEEEEE" bordercolor="#CCCCCC">
+  <tr align="center"> 
+    <th><small>number<br>
+      序号</small></th>
+    <th><small>First Area<br>
+      主库类别</small></th>
+    <th><small>Second Area<br>
+      辅库类别</small></th>
+    <th><small>First Keyword<br>
+      主关键字</small></th>
+    <th><small>Second Keyword<br>
+      副关键字</small></th>
+  </tr>
+%%lawsearchresline%% 
+<!--%%INCLUDE tempflat if="flat == 1 && area == 'TS工时统计'"%%-->
+  <tr> 
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th> 
+      <div align="center">%%time%%</div>
+    </th>
+  </tr>
+</table>
+
+
+
+%% BLOCK uplink %% <a href="in_law.pl?cmd=search&start=%%upstart%%&area=%%area%%&type=%%type%%&title=%%title%%&keyword=%%keyword%%&text=%%text%%&name=%%name%%&password=%%password%%&service_from_date=%%service_from_date%%&service_to_date=%%service_to_date%%&Sum_Reg=%%Sum_Reg%%&select=%%select%%&no_data=%%no_data%%">上一页</a> 
+%% ENDBLOCK %% 
+%% BLOCK uplink1 %% <a href="javascript:history.back()">上一页</a> 
+%% ENDBLOCK %%
+%% BLOCK noneuplink %% 上一页 %% ENDBLOCK %% %% BLOCK downlink %% 
+<a href="in_law.pl?cmd=search&start=%%downstart%%&area=%%area%%&type=%%type%%&title=%%title%%&keyword=%%keyword%%&text=%%text%%&name=%%name%%&password=%%password%%&service_from_date=%%service_from_date%%&service_to_date=%%service_to_date%%&Sum_Reg=%%Sum_Reg%%&select=%%select%%&no_data=%%no_data%%&temp_name=%%temp_name%%&temp_sum=%%temp_sum%%">下一页</a> 
+%% ENDBLOCK %% %% BLOCK nonedownlink %% 下一页 %% ENDBLOCK %% 
+%% BLOCK tempflat %% 
+ <tr align="center">
+    <td height="20" colspan="2"> </td>
+    <td><b><i><small>Fee=%%fee%%</small></i></b></td>
+    <td><b><i><small>Rate=%%rate%%</small></i></b></td>
+    <td><b><i><small>%%temp_time%%</small></i></b></td>
+</tr>%% ENDBLOCK %% 
+
+</body>
+
+</html>

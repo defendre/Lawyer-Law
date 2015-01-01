@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Lawyer Error Page</title>
+%% INCLUDE in_pmStyle.htm %%
+</head>
+<body bgcolor=#FFFFFF>
+
+<table width=600 align=center border=0>
+<tr><td align=center>
+<br><br>
+%% INCLUDE Error0 if="error_no==0"%%
+%% INCLUDE Error1 if="error_no==1"%%
+%% INCLUDE Error2 if="error_no==2"%%
+</td></tr>
+<tr><td align=center>
+<br><br>
+<p><a href="javascript:history.back()">返回</a></p>
+</td></tr>
+</table>
+
+</body>
+</html>
+%% BLOCK Error0 %%
+<p>有偿服务必须填写起至日期!</p>
+%% ENDBLOCK %%
+%% BLOCK Error1 %%
+<p>该律师所不在数据库中!</p>
+%% ENDBLOCK %%
+%% BLOCK Error2 %%
+<p>律师执业证取得日期填写错误!</p>
+%% ENDBLOCK %%
+%% BLOCK Error3 %%
+<p>免费用户的服务起至日期必须为空!</p>
+%% ENDBLOCK %%
+%% BLOCK Error4 %%
+<p>服务起至日期填写错误!</p>
+%% ENDBLOCK %%
+%% BLOCK Error5 %%
+<p>请输入姓名的中文和拼音!</p>
+%% ENDBLOCK %%
+%% BLOCK Error6 %%
+<p>该律师的记录已经存在!</p>
+%% ENDBLOCK %%
+%% BLOCK Error7 %%
+<p>律师名字的拼音填写错误!</p>
+%% ENDBLOCK %%

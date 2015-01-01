@@ -1,0 +1,129 @@
+<html><head><title>呼吁信函</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+%% INCLUDE pmStyle.htm %%
+
+<script language=JavaScript>
+<!--
+   function Validate(aForm)
+   {
+		
+	    if (aForm.text.value != "")
+	    	{
+	    	 if (aForm.name.value == "")
+                 { 
+                  alert("请输入投票人姓名!");
+	          return (false);
+                  }
+                 if (aForm.email.value=="")
+		  {
+	        alert("请输入投票人电邮!");
+	        return (false);
+		   }  	    	
+
+                }	
+		 
+}
+ //-->
+</script>
+<table width="640" align="center" border="1" bgColor="#EEEEEE" bordercolor="#CCCCCC">
+  <tr> 
+    <td colspan="2" align="center" height="21"> 
+      <p>详细内容</p>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right" nowrap width="150" height="20"><small>呼吁信函主题:</small></td>
+    <td valign="top" width="474"> 
+      <div align="left"><small>%%title%%</small></div>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right" nowrap height="20"><small>提 交 人:</small></td>
+    <td valign="top"><small>%%name%%</small></td>
+  </tr>
+  <tr> 
+    <td align="right" nowrap height="20"><small>提交日期:</small></td>
+    <td valign="top"><small>%%tpdate%%</small></td>
+  </tr>
+  <tr> 
+    <td align="right" nowrap height="20"><small>赞 成 票:</small></td>
+    <td valign="top"><small>%%zc%%次</small></td>
+  </tr>
+  <tr> 
+    <td align="right" nowrap height="20"><small>反 对 票:</small></td>
+    <td valign="top"><small>%%fd%%次</small></td>
+  </tr>
+  <tr> 
+    <td align="right" nowrap height="20"><small>弃 权 票:</small></td>
+    <td valign="top"><small>%%qq%%次</small></td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top" nowrap height="20"><small>正　　文:</small></td>
+    <td height="20"> 
+      <div align="left"><small>%%content%%</small></div>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="top" height="26" align="right"><small>投　　票:</small></td>
+    <td valign="top" rowspan="4"> 
+      <form name="form1" method="post" action="/online-cgi/hy1.pl" onsubmit="return Validate(this);">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <td rowspan="2" valign="top" height="30"> 
+            <input type="radio" name="tp" value="1">
+            <small>赞成</small> 
+            <input type="radio" name="tp" value="-1">
+            <small>反对</small> 
+            <input type="radio" name="tp" value="0">
+            <small>弃权</small> 
+          <tr> 
+            <td width="1" height="31"></td>
+          </tr>
+          <tr> 
+            <td valign="top" height="42"> 
+              <input type="text" name="name">
+            </td>
+            <td height="42"></td>
+          </tr>
+          <tr> 
+            <td height="36" valign="top"> 
+              <input type="text" name="email">
+            </td>
+            <td height="36"></td>
+          </tr>
+          <tr> 
+            <td height="101" colspan="2" valign="top"> 
+              <textarea name="text" cols="30" rows="6"></textarea>
+            </td>
+          </tr>
+          <tr> 
+            <td height="24" colspan="2" valign="top"> 
+              <input type="submit" name="Submit" value="提交">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <input type="reset" name="Submit2" value="重填">
+              <input type="hidden" name="content" value="%%content%%">
+              <input type="hidden" name="zhuti" value="%%title%%">
+              <input type="hidden" name="id" value="%%id%%">
+            </td>
+          </tr>
+        </table>
+      </form>
+    </td>
+  </tr>
+  <tr> 
+    <td height="26" valign="top" align="right"><small>投票人姓名:</small></td>
+  </tr>
+  <tr> 
+    <td height="25" valign="top" align="right"> <small>投票人电邮:</small></td>
+  </tr>
+  <tr> 
+    <td height="100" valign="top" align="right"> <small>投票人附言:</small></td>
+  </tr>
+  <tr align="center">
+    <td valign="top" nowrap colspan="2" height="20"><small></small></td>
+  </tr>
+  <tr align="center"> 
+    <td valign="top" nowrap colspan="2" height="20"><a href="javascript:history.back()"><small>返回</small></a></td>
+  </tr>
+</table>
+%% INCLUDE pmBottom.htm %% 
+</body></html>

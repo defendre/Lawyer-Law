@@ -1,0 +1,107 @@
+<html>
+
+<head>
+
+<title>填加省市信息</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<style type="text/css">
+
+<!--
+
+p,div {font-size:14px; line-height:18px; font-family:宋体;}
+
+small {font-size:12px; font-family:宋体;}
+
+a:visited {color:blue;}
+
+a:hover {color:red;}
+
+-->
+
+</style>
+
+</head>
+
+
+
+<body bgcolor="#FFFFFF">
+
+<br><br>
+
+<form method="post" action="/inside-cgi/in_city.pl">
+
+  <table width=416 border="0" align="center">
+    <tr>
+
+      <td colspan="2" align="center"> 
+        <p><b>填加地域/District Input</b></p>
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right" nowrap><small>Country/省/直辖市:</small></td>
+
+      <td><input type="text" name="province"></td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right" nowrap height="26"><small> Spelling/省/直辖市的拼音:</small></td>       
+        <td height="26">
+<input type="text" name="p_abbr"></td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right" nowrap><small>City/市/县:</small></td>
+
+      <td><input type="text" name="city"></td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right" nowrap><small>Spelling/市/县的拼音:</small></td>
+
+      <td><input type="text" name="c_abbr"></td>
+
+    </tr>
+
+    <tr>
+
+      <td colspan="2" align="center" nowrap>
+
+        <small>注意:当填写省或直辖市的时候，市/县的内容为空即可'!</small>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td colspan="2" align="center">
+
+        <input type="hidden" name="cmd" value="add">
+
+        <input type="submit" name="Submit" value="填  加">
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</form>
+
+
+
+</body>
+
+</html>
+

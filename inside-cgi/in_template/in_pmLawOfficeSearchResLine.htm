@@ -1,0 +1,37 @@
+  <tr>
+
+  	<td><small>%%num%%</small></td>
+
+    <td align="center"><small>%%INCLUDE admin1 if="file != 0"%%  <a href="in_lawoffice.pl?cmd=edit&id=%%id%%&type=%%type%%">%%name%%</a></small></td>
+
+    <td align="center"><small>%%zone%% &nbsp;</small></td>
+
+    <td><small>%%tel%% &nbsp;</small></td>
+
+     %%INCLUDE email1 if="email == 'Œﬁ” ÷∑'"%%
+    %%INCLUDE email2 if="email != 'Œﬁ” ÷∑'"%%
+    %% BLOCK email1 %%
+  <td><small>Œﬁ” ÷∑ &nbsp;</small></td>
+    %% ENDBLOCK%% %% BLOCK email2 %% 
+  <td><a href="mailto:%%email%%"><small>Email</small></a></td>
+  %% ENDBLOCK%% %%INCLUDE web1 if="fax == 'ŒﬁÕ¯÷∑'"%% %%INCLUDE web2 if="fax != 'ŒﬁÕ¯÷∑'"%% 
+  %% BLOCK web1 %% 
+  <td><small>ŒﬁÕ¯÷∑ &nbsp;</small></td>
+    %% ENDBLOCK%%
+    %% BLOCK web2 %%
+  <td><small><a href="http://%%fax%%">WWW</a> &nbsp;</small></td>
+    %% ENDBLOCK%%
+
+
+  <td align="center"><small>%%area%% &nbsp;</small></td>
+
+	
+  <td align="center"><small>%%language%% &nbsp; </small></td>
+   
+  </tr>
+ %% BLOCK admin1 %%
+    <a href="/icons/%%file%%" target="_blank">(Õº)</a>
+    %% ENDBLOCK%%
+
+
+

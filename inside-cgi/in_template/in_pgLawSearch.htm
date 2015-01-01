@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>查询信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Pragma" content="no-cache"> 
+<style type="text/css">
+<!--
+p,div {font-size:14px; line-height:18px; font-family:宋体;}
+small {font-size:12px; font-family:宋体;}
+a:visited {color:blue;}
+a:hover {color:red;}
+-->
+</style>
+</head>
+<script language=javascript>
+function initArea()
+{
+	for(var i=0;i<document.forms[0].area.length;i++)
+	{
+		
+		if(document.forms[0].area.options[i].value == "%%thearea%%")
+		{
+			document.forms[0].area.options[i].selected = 1;
+		}
+	}
+}
+function doSelectA()
+{
+	var p = document.forms[0].area.options[document.forms[0].area.selectedIndex].value;
+	location = "/inside-cgi/in_showsearch.pl?typ=2&area=" + p + "&own=" + %% own %%;
+}
+</script>
+<body onLoad="initArea()" bgcolor="#FFFFFF">
+<form method="post" action="/inside-cgi/in_law.pl">
+  <table width=739 border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p>查询信息/Find Info</p>
+      </td>
+    </tr>
+    %% INCLUDE area1 if="own == 3"%% %% INCLUDE area2 if="own != 3"%% 
+    <tr> 
+      <td align="right" nowrap width="208"><small>Second area/辅库类别:</small></td>
+      <td nowrap width="522"> 
+        <input type="text" name="type" size="28">
+        %% INCLUDE lawname if="havelawname == 1"%% </td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap width="208"><small> First keyword/主关键字:</small></td>
+      <td width="522"> 
+        <input type="text" name="title" size="28">
+        <font color="blue"><small>&nbsp;可不填</small></font> </td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap width="208"><small>Second keyword/副关键字:</small></td>
+      <td width="522"> 
+        <input type="text" name="keyword" size="28">
+        <font color="blue"><small>&nbsp;可不填</small></font> </td>
+    </tr> 
+     <tr>   
+   <td align="right" nowrap width="208"><small>Text keyword/正文:</small></td>
+    <td width="522"> 
+        <input type="text" name="text" size="28">
+        <font color="blue"><small>&nbsp;可不填</small></font> 
+   </td>
+ </tr>
+ %% INCLUDE lawname1 if="thearea == 'TS工时统计'"%% %% INCLUDE lawname1 if="thearea 
+    == '案件开支统计'"%% %% INCLUDE lawname1 if="thearea == '帐单收入统计'"%% %% INCLUDE lawname1 
+    if="thearea == '办公开支统计'"%% %% INCLUDE lawname1 if="thearea == '财产管理统计'"%% 
+     %% INCLUDE download if="own == 3"%% 
+    <tr> 
+      <td colspan="2" align="center"> 
+        <input type="hidden" name="cmd" value="search">
+        <input type="submit" name="Submit" value="查  询">
+        <input type="button" name="no_data" value="查询非标信息" onClick='location="/inside-cgi/in_law.pl?cmd=search&no_data=1"'>
+        <input type="hidden" name="own" value="%%own%%">
+      </td>
+    </tr>
+  </table>
+</form>
+
+%% BLOCK lawname %%
+<script language=javascript>
+function doSelect()
+{
+	var p = document.forms[0].sel_type.options[document.forms[0].sel_type.selectedIndex].value;
+	document.forms[0].type.value = p;
+}
+</script>
+<select name="sel_type" onChange="doSelect();">
+<option value="">或选择....
+%% lawnameline %%
+</select>
+%% ENDBLOCK %%  
+%% BLOCK lawname1 %%   
+    <tr>
+      <td align="right" nowrap width="208"><small>Period of time/查询期间:</small></td>
+      
+    <td width="522" align="left"> <small>从 
+      <input type="text" name="service_from_date" size="10" maxlength="10">
+        到
+        <input type="text" name="service_to_date" size="10" maxlength="10">
+      </small> <font color="blue"><small>&nbsp;可不填</small></font> </td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap width="208"><small>Sort order/排序选择:</small></td>
+      <td width="522"> 
+        <select name="select">
+          <option value="1">非标排序</option>
+          <option value="0" selected>标准排序</option>
+        </select>
+        <font color="blue"><small>&nbsp;</small></font></td>
+    </tr>
+%% ENDBLOCK %% 
+%% BLOCK download %% 
+ <tr> 
+      <td colspan="2" align="center"> 
+        <input type="checkbox" name="download" value="1">
+        <small>查询结果存于文件之中</small> </td>
+ </tr>
+%% ENDBLOCK %% 
+%% BLOCK area1 %% 
+<tr> 
+      
+  <td align="right" nowrap width="208"><small>First area/主库类别:</small></td>
+      <td width="522"> 
+        <select name="area" onChange="doSelectA()">
+           <option value="%%thearea%%">全部 %% bigarealine %%
+        </select>
+      </td>
+</tr>
+%% ENDBLOCK %% 
+%% BLOCK area2 %%  
+<tr> 
+      
+  <td align="right" nowrap width="208"><small>First area/主库类别:</small></td>
+      <td width="522"> 
+        <select name="area" onChange="doSelectA()">
+           <option value="全部">全部 %% bigarealine %%
+        </select>
+      </td>
+</tr>
+%% ENDBLOCK %%  
+</body>
+</html>

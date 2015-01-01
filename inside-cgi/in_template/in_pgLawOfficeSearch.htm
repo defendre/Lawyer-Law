@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>查询机构</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+%% INCLUDE in_pmStyle.htm %%
+
+<script language=javascript>
+function doSelectA()
+{
+	var p = document.forms[0].sel_area.options[document.forms[0].sel_area.selectedIndex].value;
+	document.forms[0].area.value = p;
+}
+function doSelectP()
+{
+	var p = document.forms[0].sel_province.options[document.forms[0].sel_province.selectedIndex].value;
+	document.forms[0].province.value = p;
+	location = "/inside-cgi/in_showsearch.pl?typ=1&province=" + p + "&area=" + document.forms[0].area.value + "&own=" + %%own%%;
+}
+</script>
+
+
+<form method="post" action="/inside-cgi/in_lawoffice.pl">
+  <table width=771 border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p>查询机构/Search Firm</p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap> 
+        <p><small>Practice and Relation/业务关系:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="area" value="%% area %%">
+        <select name="sel_area" onChange="doSelectA();">
+          <option value="">或选择.... %% lawarealine %% 
+        </select>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap> 
+        <p><small>Country/省/直辖市:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="province" value="%% province %%">
+        <select name="sel_province" onChange="doSelectP();">
+          <option value="">或选择.... %% provinceline %% 
+        </select>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap> 
+        <p><small>City/市/区/县:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="city">
+        %% INCLUDE cityselect if="havecity == 1"%% </td>
+    </tr>
+    <tr> 
+      <td align="right">
+         <p><small>Address/地址:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="address">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"> 
+        <p><small>Language/工作语言:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="language">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"> 
+        <p><small>Web/网址:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="web">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"> 
+        <p><small>Email/电子邮件:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="email">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"> 
+        <p><small>Name/机构名称:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="name2">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"> 
+        <p><small>Short Name/机构简称:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="name">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"> 
+        <p><small>Date/录入日期:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="cdate">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"> 
+        <p><small>Remark/备注:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="back">
+      </td>
+    </tr>
+    %% INCLUDE download if="own == 3"%% 
+    <tr> 
+      <td colspan="2" align="center"> 
+        <input type="hidden" name="cmd" value="search">
+        <input type="hidden" name="type" value="%%type%%">
+        <input type="submit" name="Submit" value="查  询">
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+%% BLOCK cityselect %%
+<script language=javascript>
+function doSelectC()
+{
+	var p = document.forms[0].sel_city.options[document.forms[0].sel_city.selectedIndex].value;
+	document.forms[0].city.value = p;
+}
+</script>
+<select name="sel_city" onChange="doSelectC();">
+<option value="">或选择....
+%% cityline %%
+</select>
+%% ENDBLOCK %%
+%% BLOCK download %% 
+ <tr> 
+      <td align="right"> 
+        <p><small>Memorandum/备忘:</small></p>
+      </td>
+      <td> 
+        <input type="text" name="mem">
+      </td>
+    </tr>
+ <tr> 
+      <td colspan="2" align="center"> 
+        <input type="checkbox" name="download" value="1">
+        <small>查询结果存于文件之中</small> </td>
+ </tr>
+%% ENDBLOCK %% 
+</body>
+</html>

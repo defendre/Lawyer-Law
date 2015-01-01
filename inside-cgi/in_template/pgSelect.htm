@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+big {font-size:16px; font-family:宋体;}
+p,div {font-size:14px; line-height:18px; font-family:宋体;}
+small {font-size:12px; font-family:宋体;}
+a:visited {color:blue;}
+a:hover {color:red;}
+-->
+</style>
+<title>选择%%title%%</title></head>
+<SCRIPT LANGUAGE="JavaScript">
+function doSelect() 
+{
+	for(var i=0;i<document.forms[0].%%textname%%.length;i++)
+	{
+		if(document.forms[0].%%textname%%.options[i].selected)
+		{
+			window.opener.document.forms[0].%%textname%%.value=document.forms[0].%%textname%%.options[i].text;
+			window.close();
+		}
+	}
+}
+</SCRIPT>
+<body text="#000000" bgcolor="#FFFFFF" link="#9966CC" vlink="#0000FF" alink="#FF0000">
+<div align="center">
+<form>
+<small>%%title%%:</small>
+<select name="%%textname%%">
+%% selectline %%
+</select>
+<INPUT TYPE="button" VALUE="选择" onClick="doSelect()">
+</form>
+</div>
+</body>
+</html>	

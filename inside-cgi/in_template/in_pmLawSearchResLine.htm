@@ -1,0 +1,64 @@
+%%INCLUDE TEMP1 if="flat == 0"%% %%INCLUDE TEMP2 if="flat == 1"%% %%INCLUDE TEMP3 
+if="flat == 2"%%  
+%% BLOCK TEMP1 %% 
+<tr>
+    <td><small>%%num%%</small></td>
+    <td align="center"><small>%%area%%</small></td>
+    <td align="center"><small>%%type%%</small></td>   
+    <td align="center"><small><a href="in_law.pl?cmd=edit&id=%%id%%&own=%%own%%">%%title%%</a>   %%INCLUDE 
+    admin1 if="file != 0"%%</small></td>
+    <td align="center"><small>%%keyword%%</small></td>
+  </tr>
+
+    %% BLOCK admin1 %%
+    <a href="/icons/%%file%%" target="_blank">(ͼ)</a>
+    %% ENDBLOCK%%
+
+%% ENDBLOCK%%
+
+%% BLOCK TEMP2 %%
+<tr align="center">
+    <td > </td>
+    <td > </td>
+    <td ></td>
+    <td ></td>
+    <td ><b><i><small>%%time%%</small></i></b></td>
+</tr>
+<tr>
+    <td><small>%%num%%</small></td>
+    <td align="center"><small>%%area%%</small></td>
+    <td align="center"><small>%%type%%</small></td>  
+    <td align="center"><small><a href="in_law.pl?cmd=edit&id=%%id%%&own=%%own%%">%%title%%</a>   %%INCLUDE 
+    admin1 if="file != 0"%%</small></td>
+    <td align="center"><small>%%keyword%%</small></td>
+</tr>
+
+   %% BLOCK admin1 %%
+   <a href="/icons/%%file%%" target="_blank">(ͼ)</a>
+   %% ENDBLOCK%%
+
+%% ENDBLOCK%%
+
+%% BLOCK TEMP3 %%
+<tr>
+    <td><small>%%num%%</small></td>
+    <td align="center"><small>%%area%%</small></td>
+    <td align="center"><small>%%type%%</small></td>  
+    <td align="center"><small><a href="in_law.pl?cmd=edit&id=%%id%%&own=%%own%%">%%title%%</a>   %%INCLUDE 
+    admin1 if="file != 0"%%</small></td>
+    <td align="center"><small>%%keyword%%</small></td>
+</tr>
+<tr align="center">
+    <td > </td>
+    <td > </td>
+    <td ></td>
+    <td ></td>
+    <td ><b><i><small>%%time%%</small></i></b></td>
+</tr>
+
+   %% BLOCK admin1 %%
+   <a href="/icons/%%file%%" target="_blank">(ͼ)</a>
+   %% ENDBLOCK%%
+
+%% ENDBLOCK%%
+

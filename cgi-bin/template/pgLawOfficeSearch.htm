@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>查询机构</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+p,div {font-size:14px; line-height:18px; font-family:宋体;}
+small {font-size:12px; font-family:宋体;}
+a:visited {color:blue;}
+a:hover {color:red;}
+-->
+</style>
+</head>
+<script language=javascript>
+function doSelectA()
+{
+	var p = document.forms[0].sel_area.options[document.forms[0].sel_area.selectedIndex].value;
+	document.forms[0].area.value = p;
+    location = "/cgi-bin/showsearch.pl?typ=1" + "&area=" + p +"&city=" + document.forms[0].city.value;
+
+}
+function doSelectP()
+{
+	var p = document.forms[0].sel_province.options[document.forms[0].sel_province.selectedIndex].value;
+	document.forms[0].province.value = p;
+	location = "/cgi-bin/showsearch.pl?typ=1&province=" + p + "&area=" + document.forms[0].area.value;
+}
+</script>
+<body bgcolor="#FFFFFF">
+
+<form method="post" action="/cgi-bin/search.pl">
+  <table width=708 border="0" align="center">
+    <tr>
+      <td colspan="2" align="center">
+        <p>查询机构/Find Firm </p>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" nowrap> 
+        <p>Practice and Relation/业务关系:</p>
+        </td>
+      <td> 
+        <input type="text" name="area" value="%% area %%">
+        <select name="sel_area" onChange="doSelectA();">
+        <option value="0">或选择....
+        %% lawarealine %%
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" nowrap> 
+        <p>Country/省/直辖市:</p>
+      </td>
+      <td> 
+        <input type="text" name="province" value="%% province %%">
+        <select name="sel_province" onChange="doSelectP();">
+        <option value="0">或选择....
+        %% provinceline %%
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" nowrap> 
+        <p>City/市/区/县:</p>
+      </td>
+      <td> 
+        <input type="text" name="city" value="%% city %%">
+        %% INCLUDE cityselect if="havecity == 1"%% </td>
+    </tr>
+    <tr>
+      <td align="right" > 
+        <p>Language/工作语言:</p>
+      </td>
+      <td > 
+        <input type="text" name="language">
+      </td>
+    </tr>
+    <tr>
+      <td align="right" > 
+        <p>Name/机构简称:</p>
+      </td>
+      <td > 
+        <input type="text" name="name">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+      	<input type="hidden" name="typ" value="1">
+    	<input type="submit" name="Submit" value="查  询">
+    	<input type="button" name="help" value="查询帮助" onClick='location="/help/help.htm"'>
+      </td>
+	</tr>
+  </table>
+</form>
+
+
+<p>%% BLOCK cityselect %% 
+  <script language=javascript>
+function doSelectC()
+{
+	var p = document.forms[0].sel_city.options[document.forms[0].sel_city.selectedIndex].value;
+	document.forms[0].city.value = p;
+ location = "/cgi-bin/showsearch.pl?typ=1&province=" + document.forms[0].province.value  +  "&city=" + p + "&area=" + document.forms[0].area.value;
+}
+</script>
+  <select name="sel_city" onChange="doSelectC();">
+    <option value="0">或选择.... %% cityline %% 
+  </select>
+  %% ENDBLOCK %% 
+</p>
+   
+%% INCLUDE pmBottom.htm %% 
+</body>
+</html>

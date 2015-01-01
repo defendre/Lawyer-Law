@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Message Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head><body bgcolor=#FFFFFF>
+
+%% INCLUDE pmStyle.htm %%
+
+<table width=600 align=center border=0>
+
+
+<tr><td align=center>
+
+
+<br><br>
+      %% INCLUDE msg0 if="msg_no==0"%% %% INCLUDE msg1 if="msg_no==1"%% %%INCLUDE 
+      msg2 if="msg_no==2"%% </td>
+  </tr>
+
+
+<tr><td align=center>
+
+
+<br><br>
+
+
+<p><a href="javascript:history.back()">返回</a></p>
+
+
+</td></tr>
+
+
+</table>
+
+
+
+
+
+
+
+
+%% BLOCK msg0 %%
+
+
+<p>非常感谢，您的个人信息已经发出!<br>
+网站管理员会尽快做出处理!</p>
+
+
+%% ENDBLOCK %%
+
+
+%% BLOCK msg1 %%
+
+
+<p>非常感谢，您的机构信息已经发出!<br>
+网站管理员会尽快做出处理!</p>
+
+
+%% ENDBLOCK %% %% BLOCK msg2 %%
+<p>非常感谢，您的详细内容信息已经发出!<br>
+  网站管理员会尽快做出处理!</p>
+%% ENDBLOCK %% 
+%% INCLUDE pmBottom.htm %%   
+</body>
+
+
+</html>

@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>查询信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Pragma" content="no-cache"> 
+<style type="text/css">
+<!--
+p,div {font-size:14px; line-height:18px; font-family:宋体;}
+small {font-size:12px; font-family:宋体;}
+a:visited {color:blue;}
+a:hover {color:red;}
+-->
+</style>
+</head>
+<script language=javascript>
+function initArea()
+{
+	for(var i=0;i<document.forms[0].area.length;i++)
+	{
+		
+		if(document.forms[0].area.options[i].value == "%%thearea%%")
+		{
+			document.forms[0].area.options[i].selected = 1;
+		}
+	}
+}
+function doSelectA()
+{
+	var p = document.forms[0].area.options[document.forms[0].area.selectedIndex].value;
+	location = "/cgi-bin/showsearch.pl?typ=2&own=0&area=" + p;
+}
+</script>
+<body onLoad="initArea()" bgcolor="#FFFFFF">
+<form method="post" action="/cgi-bin/search.pl">
+  <table width=760 border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p>查询信息/Info Search </p>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" nowrap><small>First Area/主库类别:<small></small></small></td>
+      <td nowrap> 
+        <select name="area" onChange="doSelectA()">
+        <option value="">全部
+        %% bigarealine %%
+        </select>
+      </td>
+    </tr>
+    %% INCLUDE lawname if="havelawname == 1"%% 
+    <tr>
+      <td align="right" nowrap><small> First Keyword/主关键字:<small></small></small></td>
+      <td nowrap> 
+        <input type="text" name="title"><font color="blue"><small>&nbsp;可不填</small></font>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" nowrap><small> Second Keyword/副关键字:<small></small></small></td>
+      <td nowrap> 
+        <input type="text" name="keyword"><font color="blue"><small>&nbsp;可不填</small></font>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+      <input type="hidden" name="typ" value="2">
+      <input type="submit" name="Submit" value="查  询">
+      <input type="button" name="help" value="查询帮助" onClick='location="/help/help.htm"'>
+      </td>
+    </tr>
+  </table>
+</form>
+
+%% BLOCK lawname %% 
+<tr>
+      <td align="right" nowrap><small>Second Area/辅库类别:<small></small></small></td>
+      <td nowrap> 
+        
+    <select name="type" >
+      <option value="">请选择.... %% lawnameline %% </option>
+        </select>
+      </td>
+    </tr>
+%% ENDBLOCK %%    
+%% INCLUDE pmBottom.htm %%   
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>LawOffice Error Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head><body bgcolor=#FFFFFF>
+%% INCLUDE pmStyle.htm %%
+
+
+
+<table width=600 align=center border=0>
+<tr><td align=center>
+<br><br>
+%% INCLUDE Error0 if="error_no==0"%%
+%% INCLUDE Error1 if="error_no==1"%%
+%% INCLUDE Error3 if="error_no==3"%%
+</td></tr>
+<tr><td align=center>
+<br><br>
+<p><a href="javascript:history.back()">返回</a></p>
+</td></tr>
+</table>
+
+
+
+<p>%% BLOCK Error0 %% 
+<p>对不起，请您输入必要的查询条件或请求帮助!</p>
+%% ENDBLOCK %% %% BLOCK Error1 %% 
+<p>对不起，没有查到您要找的机构! <br>
+  请您检查查询条件或到其他城市找该业务关系的机构!</p>
+%% ENDBLOCK %% %% BLOCK Error3 %% 
+<p>对不起，没有查到您要找的机构!</p>
+%% ENDBLOCK %%%% INCLUDE pmBottom.htm %% 
+</body>
+</html>

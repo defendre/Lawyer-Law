@@ -1,0 +1,127 @@
+<html>
+
+<head>
+
+<title>个人信息修改</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+
+%% INCLUDE in_pmStyle.htm %%
+
+
+%%INCLUDE admin1 if="add== 0"%%
+%%INCLUDE admin2 if="add== 1"%%
+%%INCLUDE admin3 if="add== 2"%%
+
+
+%% BLOCK admin1 %%
+<form method="post" action="in_lawyer.pl" enctype="multipart/form-data">
+
+  <table width="80%" border="0" align="center">
+
+    <tr> 
+
+      <td align="center"> 
+        <p>个人信息修改/Individual Change</p>
+      </td>
+
+    </tr>
+
+  </table>  
+
+%% INCLUDE in_pmLawyerInfo.htm %%  
+
+  <table width="80%" border="0" align="center">
+
+    <tr> 
+
+      <td align="center"> 
+        <input type="hidden" name="id" value="%%id%%">
+
+      <input type="submit" name="cmd" value="修  改">
+
+      <input type="submit" name="cmd" value="删  除" onClick='return confirm("真的删除吗?");'>
+
+      <input type="button" name="add" value="复  制" onClick='location="in_lawyer.pl?cmd=edit&id=%%id%%&type=%%type%%&add=1"'>
+<input type="button" name="cmd" value="打印预览" onClick='location="in_lawyer.pl?cmd=edit&id=%%id%%&own=%%own%%&add=2"'>
+      </td>
+
+    </tr>
+
+  </table>
+
+</form>
+%% ENDBLOCK%%
+
+%% BLOCK admin2 %%
+<form method="post" action="in_lawyer.pl" enctype="multipart/form-data">
+
+  <table width="80%" border="0" align="center">
+
+    <tr> 
+
+      <td align="center"> 
+        <p>个人信息录入/Individual Input</p>
+      </td>
+
+    </tr>
+
+  </table>  
+
+%% INCLUDE in_pmLawyerInfo.htm %%  
+
+  <table width="80%" border="0" align="center">
+
+    <tr> 
+
+      <td align="center">
+
+        <input type="hidden" name="type" value="%%type%%">
+
+      <input type="hidden" name="cmd" value="add">
+
+      <input type="submit" name="Submit" value="添  加">
+
+      <input type="reset" name="Reset" value="重  填">
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</form>
+%% ENDBLOCK%%
+%% BLOCK admin3 %%
+<form method="post" action="in_lawyer.pl" enctype="multipart/form-data">
+
+  <table width="80%" border="0" align="center">
+
+    <tr> 
+
+      <td align="center"> 
+        <p>&nbsp;</p>
+      </td>
+
+    </tr>
+
+  </table>  
+
+%% INCLUDE in_pmLawyerInfo_print.htm %% 
+  <table width="80%" border="0" align="center">
+
+    <tr> 
+
+      <td align="center">&nbsp; </td>
+
+    </tr>
+
+  </table>
+
+</form>
+%% ENDBLOCK%%
+
+</body>
+
+</html>
+

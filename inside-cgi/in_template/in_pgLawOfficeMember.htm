@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+<title>到期机构</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+%% INCLUDE in_pmStyle.htm %% 
+<p>到期的机构有(共有%%resultsum%%条记录):%%INCLUDE noneuplink if="start == 1"%%%%INCLUDE 
+  uplink if="start != 1"%%|%%INCLUDE nonedownlink if="downlink == 0"%%%% INCLUDE 
+  downlink if="downlink == 1"%%</p>
+
+<table width="100%" border="1" bgColor="#EEEEEE" bordercolor="#CCCCCC">
+  <tr> 
+    <th><small>number<br>
+      序号</small></th>
+    <th><small>Name<br>
+      名称</small></th>
+    <th><small>Tel<br>
+      电话</small></th>
+    <th><small>Fax<br>
+      传真</small></th>
+    <th><small>Fee Day<br>
+      缴费期间</small></th>
+    <th><small>Remark<br>
+      备注</small></th>
+  </tr>
+  %%lawofficememberline%% 
+</table>
+
+
+
+%% BLOCK uplink %%
+
+<a href="in_memberLawOffice.pl?start=%%upstart%%">上一页</a>
+
+%% ENDBLOCK %%
+
+%% BLOCK noneuplink %%
+
+上一页
+
+%% ENDBLOCK %%
+
+%% BLOCK downlink %%
+
+<a href="in_memberLawOffice.pl?start=%%downstart%%">下一页</a>
+
+%% ENDBLOCK %%
+
+%% BLOCK nonedownlink %%
+
+下一页
+
+%% ENDBLOCK %%</body>
+
+</html>

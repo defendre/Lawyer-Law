@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>查询个人</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+div {font-size:14px; line-height:18px; font-family:宋体;}
+small {font-size:12px; font-family:宋体;}
+a:visited {color:blue;}
+a:hover {color:red;}
+.unnamed1 {  }
+p { font-size:14px; line-height:18px; font-family:"宋体"; ; } .help1 { background-color: #CCCCCC; background-image: none; color: #000000; font-family: "Arial", "Helvetica", "sans-serif"; font-size: 14px; font-style: normal}
+.help1C { background-image: none; color: #000000; font-family: "Arial", "Helvetica", "sans-serif"; font-size: 14px; font-style: normal }
+.rt {  font-style: normal; color: #FF0000; text-decoration: none}
+-->
+</style>
+<script language=JavaScript>
+<!--
+function MM_callJS(jsStr) { //v2.0
+  return eval(jsStr)
+}
+//-->
+</script>
+</head>
+<script language=javascript>
+function doSelectA()
+{
+	var p = document.forms[0].sel_area.options[document.forms[0].sel_area.selectedIndex].value;
+	document.forms[0].area.value = p; 
+        location = "/cgi-bin/showsearch.pl?typ=0" + "&area=" + p;
+}
+function doSelectA1()
+{
+	var p = document.forms[0].sel_area1.options[document.forms[0].sel_area1.selectedIndex].value;
+	document.forms[0].area.value = p;  
+}
+function doSelectP()
+{
+	var p = document.forms[0].sel_province.options[document.forms[0].sel_province.selectedIndex].value;
+	document.forms[0].province.value = p;
+	location = "/cgi-bin/showsearch.pl?typ=0&province=" + p + "&area=" + document.forms[0].area.value;
+}
+</script>
+<body bgcolor="#FFFFFF">
+<form method="post" name="search" action="/cgi-bin/search.pl">
+  <table width=800 border="0" align="center">
+    <tr> 
+      <td colspan="3" align="center"> 
+        <p>查询个人/Find Individual</p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap> 
+        <p>Practice and Relation/业务关系:</p>
+      </td>
+      <td colspan="2"> <font color="#FF0000"> 
+        <input type="text" name="area" value="%% area %%">
+        <font color="#000000"> %% INCLUDE select if="VAL == 0"%% </font><font color="#FF0000"><font color="#000000">%% 
+        INCLUDE select1 if="VAL ==1"%%</font></font></font></td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap height="30"> 
+        <p>Country/省/直辖市:</p>
+      </td>
+      <td width="359" valign="top" height="30"> 
+        <input type="text" name="province" value="%% province %%">
+        <select name="sel_province" onChange="doSelectP();">
+          <option value="" selected>或选择.... %% provinceline %% 
+        </select>
+      </td>
+      <td width="196" valign="top" height="30"><font color="#FF0000"><font color="#FF0000"><font color="#000000">%% 
+        INCLUDE select2 if="button == 0 and X==1" %%</font></font></font></td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap> 
+        <p>City/市/区/县:</p>
+      </td>
+      <td colspan="2"> 
+        <input type="text" name="city" value="%%city%%">
+        %% INCLUDE cityselect if="havecity == 1"%%</td>
+    </tr>
+    <tr> 
+      <td align="right"> 
+        <p>Language/工作语言:</p>
+      </td>
+      <td class="unnamed1" colspan="2"> 
+        <input type="text" name="language">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" height="26"> 
+        <p><font color="#000000">Name/姓名</font>:</p>
+      </td>
+      <td height="26" colspan="2"> 
+        <input type="text" name="name">
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="3" align="center"> 
+        <input type="hidden" name="typ" value="0">
+        <input type="submit" name="Submit" value="查  询" class="help1C">
+        <input type="button" name="help" value="查询帮助" onClick='location="/help/help.htm"' class="help1">
+      </td>
+    </tr>
+  </table>
+  <p>%% BLOCK select1 %% 
+    <select name="sel_area1" onChange="doSelectA1();" class="rt">
+      <option value="" selected>重新选择业务关系.... %% lawyerarealine %% </option>
+    </select>
+    %% ENDBLOCK %% </p>
+  
+</form>
+
+
+<p>%% BLOCK cityselect %% 
+  <script language=JavaScript>
+function doSelectC()
+{
+	var p = document.forms[0].sel_city.options[document.forms[0].sel_city.selectedIndex].value;
+	document.forms[0].city.value = p;
+        location = "/cgi-bin/showsearch.pl?typ=0&province=" + document.forms[0].province.value + "&area=" + document.forms[0].area.value +"&city=" +p;
+}
+</script>
+  <select name="sel_city" onChange="doSelectC();">
+    <option value="" selected>或选择.... %% cityline %% 
+  </select>
+  %% ENDBLOCK %%</p>
+<p> %% BLOCK select %%
+  <select name="sel_area" onChange="doSelectA();">
+    <option value="" selected>或选择.... %% lawarealine %%</option>
+  </select>
+  %% ENDBLOCK %% </p>
+<p>%% BLOCK select2 %%<img src="../icons/ic.gif" onClick='location = "/cgi-bin/showsearch.pl?typ=0&province=" 
+        + document.forms[0].province.value + "&area=" + document.forms[0].area.value 
+        +"&city="+document.forms[0].city.value+ "&button=" + "1" ' alt="不匹配，点击重选!" width="20" height="20"> 
+  %% ENDBLOCK %% </p>
+%% INCLUDE pmBottom.htm %%   
+</body>
+</html>

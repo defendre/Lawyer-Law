@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+<title>信息查询结果</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+
+%% INCLUDE pmStyle.htm %%
+
+
+
+
+
+
+
+<p>信息查询结果(共有%%resultsum%%条记录):%%INCLUDE noneuplink if="start == 1"%%%%INCLUDE 
+  uplink if="start != 1"%%|%%INCLUDE nonedownlink if="downlink == 0"%%%% INCLUDE 
+  downlink if="downlink == 1"%%</p>
+
+<table width="100%" border="1" bgColor="#EEEEEE" bordercolor="#CCCCCC">
+
+  <tr>
+
+  	<th><small>number<br> 
+序号</small></th>
+
+    <th><small>First Area<br>
+主库类别</small></th>
+
+    <th><small>Second Area<br>辅库类别</small></th>
+
+    <th><small>First Keyword<br>
+      主关键字</small></th>
+
+    <th><small> Second Keyword <br>
+      副关键字</small></th>
+
+  </tr>
+
+%%lawsearchresline%%
+
+</table>
+
+%% INCLUDE pmBottom.htm %% %% BLOCK uplink %% <a href="search.pl?typ=2&start=%%upstart%%&area=%%area%%&type=%%type%%&title=%%title%%&keyword=%%keyword%%&name=%%name%%&password=%%password%%&Sum_Reg=%%Sum_Reg%%">上一页</a> 
+%% ENDBLOCK %% %% BLOCK noneuplink %% 上一页 %% ENDBLOCK %% %% BLOCK downlink %% 
+<a href="search.pl?typ=2&start=%%downstart%%&area=%%area%%&type=%%type%%&title=%%title%%&keyword=%%keyword%%&name=%%name%%&password=%%password%%&Sum_Reg=%%Sum_Reg%%">下一页</a> 
+%% ENDBLOCK %% %% BLOCK nonedownlink %% 下一页 %% ENDBLOCK %% 
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+<title>机构查找结果</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+%% INCLUDE pmStyle.htm %% 
+<p>机构查找结果(共有%%resultsum%%条记录):%%INCLUDE noneuplink if="start == 
+  1"%%%%INCLUDE uplink if="start != 1"%%|%%INCLUDE nonedownlink if="downlink == 
+  0"%%%% INCLUDE downlink if="downlink == 1"%%</p>
+
+<table width="100%" border="1" bgColor="#EEEEEE" bordercolor="#CCCCCC">
+
+  <tr>
+
+  	<th><small>number<br>
+      序号</small></th>
+
+    <th><small>Name<br>
+      名称</small></th>
+
+    <th><small>District<br>
+      地域</small></th>
+
+    <th><small>Tel<br>
+      电话</small></th>
+
+     <th><small>Email<br>
+      邮址</small></th>
+    <th><small>Web<br>
+      网址</small></th>
+
+	<th><small>Practice and Relation<br>
+      业务关系</small></th>
+
+	<th><small>Language<br>
+      语言</small></th>
+
+  </tr>
+
+%%lawofficesearchresline%%
+
+</table>
+
+<p><small>机构</small>查找结果(共有%%resultsum%%条记录):%%INCLUDE noneuplink if="start == 
+  1"%%%%INCLUDE uplink if="start != 1"%%|%%INCLUDE nonedownlink if="downlink == 
+  0"%%%% INCLUDE downlink if="downlink == 1"%%</p>
+%% INCLUDE pmBottom.htm %% %% BLOCK uplink %% <a href="search.pl?typ=1&start=%%upstart%%&area=%%area%%&province=%%province%%&city=%%city%%&language=%%language%%&name=%%name%%">上一页</a> 
+%% ENDBLOCK %% %% BLOCK noneuplink %% 上一页 %% ENDBLOCK %% %% BLOCK downlink %% 
+<a href="search.pl?typ=1&start=%%downstart%%&area=%%area%%&province=%%province%%&city=%%city%%&language=%%language%%&name=%%name%%">下一页</a> 
+%% ENDBLOCK %% %% BLOCK nonedownlink %% 下一页 %% ENDBLOCK %%
+ 
+ 
+</body>
+
+</html>

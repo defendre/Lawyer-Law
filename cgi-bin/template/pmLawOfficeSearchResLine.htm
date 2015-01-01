@@ -1,0 +1,28 @@
+  <tr>
+
+  	<td><small>%%num%%</small></td>
+
+    <td align="center"><small><a href="show.pl?typ=1&id=%%id%%">%%name%%</a></small></td>
+
+    <td align="center"><small>%%zone%% &nbsp;</small></td>
+
+    <td><small>%%tel%% &nbsp;</small></td>
+
+     %%INCLUDE email1 if="email == '无邮址'"%%
+    %%INCLUDE email2 if="email != '无邮址'"%%
+    %% BLOCK email1 %%
+  <td><small>无邮址 &nbsp;</small></td>
+    %% ENDBLOCK%% %% BLOCK email2 %% 
+  <td><a href="mailto:%%email%%"><small>Email</small></a></td>
+  %% ENDBLOCK%% %%INCLUDE web1 if="fax == '无网址'"%% %%INCLUDE web2 if="fax != '无网址'"%% 
+  %% BLOCK web1 %% 
+  <td><small>无网址 &nbsp;</small></td>
+    %% ENDBLOCK%%
+    %% BLOCK web2 %%
+  <td><small><a href="http://%%fax%%">WWW</a> &nbsp;</small></td>
+    %% ENDBLOCK%%
+	<td align="center"><small>%%area%% &nbsp;</small></td>
+
+	<td align="center"><small>%%language%% &nbsp;</small></td>
+
+  </tr>

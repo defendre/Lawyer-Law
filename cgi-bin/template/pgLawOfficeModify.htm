@@ -1,0 +1,134 @@
+<html>
+
+<head>
+
+<title>机构信息更新</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+%% INCLUDE pmStyle.htm %% 
+<form method="post" action="modify.pl">
+
+  <table width="953" border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p>机构信息更新/Firm Updating</p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Name/机构名称:</small></td>
+      <td width="71%"> 
+        <input type="text" name="name" value="%%name%%" size="50">
+        <small><font color="red">(中文)</font></small> </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Short Name/机构简称:</small></td>
+      <td width="71%"> 
+        <input type="text" name="sname" value="%%sname%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Country/省/直辖市:</small></td>
+      <td width="71%"> 
+        <input type="text" name="province" value="%%province%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>City/市/区/县:</small></td>
+      <td width="71%"> 
+        <input type="text" name="city" value="%%city%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Address/地址:</small></td>
+      <td width="71%"> 
+        <input type="text" name="address" value="%%address%%" size="50">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Zip Code/邮编:</small></td>
+      <td width="71%"> 
+        <input type="text" name="zipcode" value="%%zipcode%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Tel/电话:</small></td>
+      <td width="71%"> 
+        <input type="text" name="areacode" value="%%areacode%%" onBlur='document.forms[0].areacode1.value=document.forms[0].areacode.value' size="5">
+        <small>-</small> 
+        <input type="text" name="tel" value="%%tel%%" size="12">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Fax/传真:</small></td>
+      <td width="71%"> 
+        <input type="text" name="areacode1" value="%%areacode%%" size="5" onClick="blur()">
+        <small>-</small> 
+        <input type="text" name="fax" value="%%fax%%" size="12">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Email1/电子信箱1:</small></td>
+      <td width="71%"> 
+        <input type="text" name="email1" value="%%email1%%" size="50">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Email2/电子信箱2:</small></td>
+      <td width="71%"> 
+        <input type="text" name="email2" value="%%email2%%" size="50">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Web/网址:</small></td>
+      <td width="71%"> 
+        <input type="text" name="website" value="%%website%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Practice and Relation/业务关系:</small></td>
+      <td width="71%"> 
+        <input type="text" name="area" value="%%area%%">
+        <small><font color="red">*</font>请按主次顺序填写，并以逗号分隔。</small> </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Reg.No./机构注册证号:</small></td>
+      <td width="71%"> 
+        <input type="text" name="serial" value="%%serial%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Language/工作语言:</small></td>
+      <td width="71%"> 
+        <input type="text" name="language" value="%%language%%">
+        <small><font color="red">*</font>请按主次顺序填写，并以逗号分隔。</small> </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Year of Est./注册日期:</small></td>
+      <td width="71%"> 
+        <input type="text" name="authdate" value="%%authdate%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" width="29%"><small>Remark/备注</small>:</td>
+      <td width="71%"> 
+        <input type="text" name="remark" value="%%remark%%">
+        <small><font color="red">*</font>如律师所名称更改请在备注中加以说明</small></td>
+    </tr>
+    <tr> 
+      <td colspan="2" align="center"> 
+        <input type="hidden" name="typ" value="2">
+        <input type="submit" name="Submit" value="提  交">
+        <input type="reset" name="Reset" value="重  填">
+      </td>
+    </tr>
+  </table>
+
+</form>
+
+%% INCLUDE pmBottom.htm %%
+
+</body>
+
+</html>
+

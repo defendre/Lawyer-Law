@@ -1,0 +1,70 @@
+<html>
+
+<head>
+
+<title>信息更新</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head>
+<body bgcolor="#FFFFFF">
+%% INCLUDE pmStyle.htm %%
+
+
+
+
+
+
+<form method="post" action="modify.pl">
+
+  <table width=715 border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p><small>详细内容更新/Info Updating</small></p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>First Area/主库类别:</small></td>
+      <td> 
+        <input type="text" name="name" value="%%area%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>Second Area/辅库类别:</small></td>
+      <td> 
+        <input type="text" name="province" value="%%type%%" size="50">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>First Keyword/主关键字:</small></td>
+      <td> 
+        <input type="text" name="city" value="%%title%%" size="50">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>Second Keyword/副关键字:</small></td>
+      <td> 
+        <input type="text" name="address" value="%%keyword%%" size="50" >
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" valign="top"><small>Content/正　　文:</small></td>
+      <td> 
+        <textarea name="textfield" cols="60" rows="25">%%content%%</textarea>
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2" align="center"> 
+        <input type="hidden" name="typ" value="3">
+        <input type="submit" name="Submit" value="提  交">
+        <input type="reset" name="Reset" value="重  填">
+      </td>
+    </tr>
+  </table>
+
+</form>
+
+%% INCLUDE pmBottom.htm %%
+
+</body>
+
+</html>
+

@@ -1,0 +1,146 @@
+<html>
+
+<head>
+
+<title>信息修改</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF"> 
+%% INCLUDE in_pmStyle.htm %% 
+
+%%INCLUDE admin1 if="add== 0"%% 
+%%INCLUDE admin2 if="add== 1"%% 
+%%INCLUDE admin3 if="add== 2"%%
+%%INCLUDE admin4 if="add== 3"%%
+
+%% BLOCK admin1 %% 
+
+<form method="post" action="in_law.pl" enctype="multipart/form-data">
+
+  <table width=600 border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center" height="18"> 
+        <p>信息修改/Info Change</p>
+      </td>
+    </tr>
+  
+  </table>
+%% INCLUDE in_pmLawInfo.htm %% 
+  <table width="600" border="0" align="center">
+     <tr> 
+       <td align="center"> 
+        <input type="submit" name="cmd" value="修  改">
+        <input type="submit" name="cmd" value="删  除" onClick='return confirm("真的删除吗?");'>
+        <input type="button" name="add" value="复  制" onClick='location="in_law.pl?cmd=edit&id=%%id%%&type=1&add=1&own=%%own%%"'>
+        <input type="button" name="cmd" value="打印预览" onclick="javascript:window.open('in_law.pl?cmd=edit&id=%%id%%&own=%%own%%&add=2');">
+        <!--<input type="button" value="上载图片" onClick="javascript:window.open('in_law.pl?cmd=edit&id=%%id%%&own=%%own%%&add=3');">-->
+        <input type="button" value="上载图片" onClick="javascript:set_file();">
+        <small> 
+        <script language="JavaScript" type="text/JavaScript"> 
+function set_file() 
+{ 
+
+if (up1.style.display != 'none') 
+{ 
+up1.style.display ='none'; 
+up2.style.display ='none'; 
+} 
+else 
+{ 
+up1.style.display ='inline'; 
+up2.style.display ='inline'; 
+} 
+
+} 
+</script>
+        <input type="hidden" name="id" value="%%id%%">
+        </small></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+%% ENDBLOCK%% %% BLOCK admin2 %%
+
+<form action="in_law.pl" method="post" enctype="multipart/form-data">
+  <table width=600 border="0" align="center">
+    <tr> 
+      <td align="center" height="17"> 
+        <p>信息录入/info Input</p>
+      </td>
+    </tr>
+  </table>
+  %% INCLUDE in_pmLawInfo.htm %% 
+  <table width="600" border="0" align="center">
+    <tr> 
+      <td align="center"> 
+        <input type="hidden" name="cmd" value="add">
+        <input type="submit" name="Submit" value="添  加">
+        <input type="reset" name="Reset" value="重  填">
+      </td>
+    </tr>
+  </table>
+</form>
+%% ENDBLOCK%% 
+%% BLOCK admin3%% 
+
+
+
+  <table width=600 border="0" align="center">
+
+    <tr>
+
+       <td align="center" height="17"> 
+        <p>打印预览/Print Preview </p>
+      </td>
+
+    </tr>
+
+  </table>
+
+%% INCLUDE in_pmLawInfo_print.htm %% 
+<table width=600 border="0" align="center">
+
+	<tr>
+
+      <td colspan="2" align="center"> 
+        <input type="hidden" name="id" value="%%id%%">
+      </td>
+
+    </tr>
+
+  </table>
+
+%% ENDBLOCK%% 
+
+%% BLOCK admin4 %% 
+
+<form method="post" action="in_law.pl" enctype="multipart/form-data">
+
+  <table width=600 border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center" height="18"> 
+        <p>信息修改/Info Change</p>
+      </td>
+    </tr>
+  
+  </table>
+%% INCLUDE in_pmLawInfo_load.htm %% 
+  <table width="600" border="0" align="center">
+     <tr> 
+       <td align="center"> 
+        <input type="submit" name="cmd" value="修  改">
+        <input type="submit" name="cmd" value="删  除" onClick='return confirm("真的删除吗?");'>
+        <input type="button" name="add" value="复  制" onClick='location="in_law.pl?cmd=edit&id=%%id%%&type=1&add=1&own=%%own%%"'>
+        <input type="button" name="cmd" value="打印预览" onclick="javascript:window.open('in_law.pl?cmd=edit&id=%%id%%&own=%%own%%&add=2');">
+        <small> 
+        <input type="hidden" name="id" value="%%id%%">
+        </small></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+%% ENDBLOCK%% 
+
+</body>
+
+</html>
+

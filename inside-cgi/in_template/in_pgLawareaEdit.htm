@@ -1,0 +1,135 @@
+<html>
+
+
+
+<head>
+
+
+
+<title>修改业务关系</title>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+
+
+
+%% INCLUDE in_pmStyle.htm %%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+%%INCLUDE admin1 if="add== 0"%% %%INCLUDE admin2 if="add== 1"%%
+
+
+%% BLOCK admin1 %%
+
+
+
+
+<form method="post" action="/inside-cgi/in_lawarea.pl">
+
+
+
+  <table width=491 border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p><b>修改业务关系/Practice and Relation Change</b></p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>Practice and Relation/业务关系:</small></td>
+      <td> 
+        <input type="text" name="name" value="%% name %%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>Spelling/拼音:</small></td>
+      <td> 
+        <input type="text" name="abbr" value="%% abbr %%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>权限:</small></td>
+      <td> 
+        <input type="text" name="own" value="%% own %%">
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2" align="center"> 
+        <input type="hidden" name="id" value="%% id %%">
+        <input type="submit" name="cmd" value="修  改">
+        <input type="submit" name="cmd" value="删  除" onClick='return confirm("真的删除吗?");'>
+        <input type="button" name="复制" value="复  制" onClick='location="/inside-cgi/in_lawarea.pl?cmd=edit&id=%%id%%&&add=1"'>
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p><font color="red">注意：删除业务关系， 可能会影响到其他数据，造成数据库混乱!!<br>
+          这种错误不能通过再次填加得到更正!!! </font></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+</form>
+%% ENDBLOCK%% %% BLOCK admin2 %% 
+<form method="post" action="/inside-cgi/in_lawarea.pl">
+
+  <table width=452 border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p><b>填加业务关系/Practice and Relation Input</b></p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>Practice and Relation/业务关系:</small></td>
+      <td> 
+        <input type="text" name="name" value="%% name %%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>Spelling/拼音:</small></td>
+      <td> 
+        <input type="text" name="abbr" value="%% abbr %%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><small>权限:</small></td>
+      <td> 
+        <input type="text" name="own" value="%% own %%">
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2" align="center"> 
+        <input type="hidden" name="cmd" value="add">
+        <input type="submit" name="Submit" value="填  加">
+      </td>
+    </tr>
+  </table>
+
+</form>
+
+%% ENDBLOCK%%
+
+</body>
+
+
+
+</html>
+
+
+

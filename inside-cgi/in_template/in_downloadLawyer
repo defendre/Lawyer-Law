@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Pragma" content="no-cache"> 
+</head>
+<body>
+<p>
+------------------------------------------------<br>
+%%name%%<br>
+%%zipcode%%<br>
+%%zone%% %%address%%<br>
+%%tel%%<br>
+%%fax%%<br>
+%%mobile%%<br>
+%%email1%%<br>
+%%email2%%<br>
+%%website%%<br>
+%%language%%<br>
+%%serial%%<br>
+%%authdate%%<br>
+%%lawoffice%%<br>
+%%area1%%<br>
+%%area2%%<br>
+%%area3%%<br>
+------------------------------------------------<br>
+</P>
+</body>
+</html>

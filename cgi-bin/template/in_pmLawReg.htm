@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>身份验证</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Pragma" content="no-cache"> 
+<style type="text/css">
+<!--
+p,div {font-size:14px; line-height:18px; font-family:宋体;}
+small {font-size:12px; font-family:宋体;}
+a:visited {color:blue;}
+a:hover {color:red;}
+-->
+</style>
+<SCRIPT language=javascript>
+<!--
+   function Validate(aForm)
+   {
+
+		 if (aForm.name.value=="")
+	    	{
+	    	alert("请输入你的用户名!");
+	        return (false);
+	    	}	
+		 if (aForm.password.value=="")
+		   {
+	        alert("请输入你的密码!");
+	        return (false);
+		   }
+	  
+ }
+ //-->
+</SCRIPT>
+</head>
+
+<body bgcolor="#FFFFFF">
+<form method="post" action="/cgi-bin/search.pl" onsubmit="return Validate(this);">
+  <table width=80% border="0" align="center">
+    <tr> 
+      <td colspan="2" align="center"> 
+        <p>身份验证</p>
+      </td>
+    </tr>
+      <tr> 
+      <td align="right" nowrap width="208"><small>用户名:<small></small></small></td>
+      <td nowrap width="522"> 
+        <input type="text" name="name" size="26" value="%%name%%">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" nowrap width="208"><small> 密码:<small></small></small></td>
+      <td width="522"> 
+        <input type="password" name="password" size="28" value="%%password%%">
+      </td>
+    </tr>
+    %% INCLUDE  link if="link == 1"%% 
+    %% INCLUDE  link1 if="link == 0"%% 
+    <tr> 
+      <td colspan="2" align="center"> 
+        <input type="hidden" name="typ" value="2">
+        <input type="submit" name="Submit" value="查  询">
+        <input type="button" name="help" value="返  回" onClick='location="/cgi-bin/showsearch.pl?typ=2"'>
+        <input type="hidden" name="area" value="%%area%%">
+        <input type="hidden" name="type" value="%%type%%">
+        <input type="hidden" name="keyword" value="%%keyword%%">
+        <input type="hidden" name="Sum_Reg" value="%%Sum_Reg%%">
+      </td>
+    </tr>
+  </table>
+</form>
+%% BLOCK link %% 
+ <tr> 
+      <td align="right" nowrap width="208"><small>案号:<small></small></small></td>
+      <td width="522"> 
+        
+    <select name="title">
+      <option value="">请选择....
+%% lawnameline %%
+</select>
+      </td>
+    </tr>
+%% ENDBLOCK %% %% BLOCK link1 %% 
+<input type="hidden" name="title" value="%%title%%">
+%% ENDBLOCK %% 
+</body>
+
+</html>

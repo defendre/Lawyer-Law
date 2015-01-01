@@ -1,0 +1,63 @@
+<html>
+
+<head>
+
+<title>机构查找结果</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head><body bgcolor="#FFFFFF">
+%% INCLUDE in_pmStyle.htm %% 
+<p>机构查找结果(共有%%resultsum%%条记录):%%INCLUDE noneuplink if="start == 1"%%%%INCLUDE 
+  uplink if="start != 1"%%|%%INCLUDE nonedownlink if="downlink == 0"%%%% INCLUDE 
+  downlink if="downlink == 1"%%</p>
+
+<table width="100%" border="1" bgColor="#EEEEEE" bordercolor="#CCCCCC">
+
+  <tr>
+
+  	<th><small>number<br>序号</small></th>
+
+    <th><small>Name<br>名称</small></th>
+
+    <th><small>District<br>地域</small></th>
+
+    <th><small>Tel<br>电话</small></th>
+     <th><small>Email<br>邮址</small></th>
+    <th><small>Web<br>网址</small></th> 
+	<th><small><b>Practice and Relation</b><br>
+      <b>业务关系</b></small></th>
+
+	<th><small>Language<br>语言</small></th>
+
+  </tr>
+
+%%lawofficesearchresline%%
+
+</table>
+
+
+
+%% BLOCK uplink %%
+
+<a href="in_lawoffice.pl?cmd=search&start=%%upstart%%&area=%%area%%&province=%%province%%&city=%%city%%&language=%%language%%&name=%%name%%&name2=%%name2%%web=%%web%%email=%%email%%&cdate=%%cdate%%&back=%%back%%&mem=%%mem%%address=%%address%%">上一页</a>
+
+%% ENDBLOCK %%
+
+%% BLOCK noneuplink %%
+
+上一页
+
+%% ENDBLOCK %%
+
+%% BLOCK downlink %%
+
+<a href="in_lawoffice.pl?cmd=search&start=%%downstart%%&area=%%area%%&province=%%province%%&city=%%city%%&language=%%language%%&name=%%name%%&name2=%%name2%%web=%%web%%email=%%email%%&cdate=%%cdate%%&back=%%back%%&mem=%%mem%%address=%%address%%">下一页</a>
+
+%% ENDBLOCK %%
+
+%% BLOCK nonedownlink %%
+
+下一页
+
+%% ENDBLOCK %%</body>
+
+</html>
