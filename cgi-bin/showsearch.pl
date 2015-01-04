@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl 
 
 use strict;
 
@@ -41,7 +41,7 @@ my $mt = Text::MetaText->new(\%mtparam);
 
 #connet to database,get database handler
 my $dbh = DBI->connect(@dbiparam) || 
-	print "²»ÄÜÁ¬½Óµ½Êı¾İ¿â£¡" && return;
+	print "ä¸èƒ½è¿æ¥åˆ°æ•°æ®åº“ï¼" && return;
  
 #get CGI params
 my %param;
@@ -74,7 +74,7 @@ sub main
 	elsif($typ eq '2') {
 		&showLawSearch($param);}
         else {
-		print "´íÎóÖ¸Áî!!";}
+		print "é”™è¯¯æŒ‡ä»¤!!";}
 }
 
 sub showLawyerSearch
