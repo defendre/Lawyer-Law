@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl 
 
 use strict;
 
@@ -56,7 +56,7 @@ my $mt = Text::MetaText->new(\%mtparam);
 
 #connet to database,get database handler
 my $dbh = DBI->connect(@dbiparam) || 
-	print "²»ÄÜÁ¬½Óµ½Êı¾İ¿â£¡" && return;
+	print "ä¸èƒ½è¿æ¥åˆ°æ•°æ®åº“ï¼" && return;
  
 #get CGI params
 my %param;
@@ -89,7 +89,7 @@ sub main
 	elsif($typ eq '2') {
 		&searchLaw($param);}
 	else {
-		print "´íÎóÖ¸Áî!!";}
+		print "é”™è¯¯æŒ‡ä»¤!!";}
 }
 
 sub searchLawyer
@@ -105,11 +105,11 @@ sub searchLawyer
     $area = convert($area);
     
     my $province = (!defined($param->{'province'}))?"":$param->{'province'};
-    $province = c_replace($province, qw( ¡¡ Ê¡ ÊĞ), ' ');
+    $province = c_replace($province, qw( ã€€ çœ å¸‚), ' ');
 	#$province =~ s/ //;
 
     my $city = (!defined($param->{'city'}))?"":$param->{'city'};
-    $city = c_replace($city, qw( ¡¡ Ê¡ ÊĞ), ' ');
+    $city = c_replace($city, qw( ã€€ çœ å¸‚), ' ');
         #$city =~ s/ //;
         if ($city=~/[a-z]|[A-Z]/)
            {
@@ -246,9 +246,9 @@ __SQL__
 
             if($email1 eq '' && $email2){ $email =  $email2;
              }
-             elsif($email2 eq  ''  && $email1 eq ''){ $email = "ÎŞÓÊÖ·";
+             elsif($email2 eq  ''  && $email1 eq ''){ $email = "æ— é‚®å€";
              }
-	     $website = "ÎŞÍøÖ·" if($website eq '');
+	     $website = "æ— ç½‘å€" if($website eq '');
 
 		$searchLawyerResLine .= $mt->process_file('pmLawyerSearchResLine.htm', 
 							{
@@ -298,11 +298,11 @@ sub searchLawOffice
     $area = convert($area);
     
     my $province = (!defined($param->{'province'}))?"":$param->{'province'};
-    $province = c_replace($province, qw( ¡¡ Ê¡ ÊĞ), ' ');
+    $province = c_replace($province, qw( ã€€ çœ å¸‚), ' ');
 	#$province =~ s/ //;
     
     my $city = (!defined($param->{'city'}))?"":$param->{'city'};
-	$city = c_replace($city, qw( ¡¡ Ê¡ ÊĞ), ' ');
+	$city = c_replace($city, qw( ã€€ çœ å¸‚), ' ');
         #$city =~ s/ //;
         #$city = uc($ctiy);
         if ($city=~/[a-z]|[A-Z]/)
@@ -426,9 +426,9 @@ __SQL__
 
             if($email1 eq '' && $email2){ $email =  $email2;
              }
-             elsif($email2 eq  ''  && $email1 eq ''){ $email = "ÎŞÓÊÖ·";
+             elsif($email2 eq  ''  && $email1 eq ''){ $email = "æ— é‚®å€";
              }
-	     $website = "ÎŞÍøÖ·" if($website eq '');
+	     $website = "æ— ç½‘å€" if($website eq '');
 		
 		$searchLawOfficeResLine .= $mt->process_file('pmLawOfficeSearchResLine.htm', 
 							{
@@ -488,7 +488,7 @@ sub searchLaw
           
         my $Lawyer_id = 0;
 
-my @councilCity = ('TS¹¤Ê±Í³¼Æ','°¸¼ş¿ªÖ§Í³¼Æ','°¸¼şÕÊµ¥Í³¼Æ','°ì¹«¿ªÖ§Í³¼Æ','ÕÊµ¥ÊÕÈëÍ³¼Æ','²Æ²ú¹ÜÀíÍ³¼Æ');
+my @councilCity = ('TSå·¥æ—¶ç»Ÿè®¡','æ¡ˆä»¶å¼€æ”¯ç»Ÿè®¡','æ¡ˆä»¶å¸å•ç»Ÿè®¡','åŠå…¬å¼€æ”¯ç»Ÿè®¡','å¸å•æ”¶å…¥ç»Ÿè®¡','è´¢äº§ç®¡ç†ç»Ÿè®¡');
  foreach (@councilCity)
         {
             ($keyword,$cdate)=split(/\//,$keyword) if($area eq $_);
@@ -521,7 +521,7 @@ __SQL__
        
 
       
-        #Reg ÓÃ»§´æÔÚÓë·ñ!  
+        #Reg ç”¨æˆ·å­˜åœ¨ä¸å¦!  
         if($iown eq $area)
           {
             ($Sum_Reg,$Lawyer_id) = $dbh->selectrow_array(<<__SQL__,undef,$name,$password);
@@ -538,7 +538,7 @@ __SQL__
 
          
         #################################
-        #RegÓÃ»§ÊÇ·ñÓĞĞ§£¡
+        #Regç”¨æˆ·æ˜¯å¦æœ‰æ•ˆï¼
        
        if($iown eq $area && $Lawyer_id == 0 && $name)
     {
@@ -659,7 +659,7 @@ __SQL__
                $titleStr = $mt->process_file('pmLawSearchResLine_title.htm', 
 			{id => "$res_id", title => "$res_title"});
         
-	 if($res_area eq 'TS¹¤Ê±Í³¼Æ' || $res_area eq  '°¸¼ş¿ªÖ§Í³¼Æ' || $res_area eq '°¸¼şÕÊµ¥Í³¼Æ' || $res_area eq 'ÕÊµ¥ÊÕÈëÍ³¼Æ')
+	 if($res_area eq 'TSå·¥æ—¶ç»Ÿè®¡' || $res_area eq  'æ¡ˆä»¶å¼€æ”¯ç»Ÿè®¡' || $res_area eq 'æ¡ˆä»¶å¸å•ç»Ÿè®¡' || $res_area eq 'å¸å•æ”¶å…¥ç»Ÿè®¡')
                    {
                 $searchLawResLine .= $mt->process_file('pmLawSearchResLine.htm', {
                                                 'num' => "$num",
@@ -704,7 +704,7 @@ __SQL__
       #$link = 1 if($link == 2 && $downLink == 1);
 
     ###############################################
-    #³öÏÖÑéÖ¤Ò³Ãæ£¡
+    #å‡ºç°éªŒè¯é¡µé¢ï¼
     
     
    
