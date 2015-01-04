@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 $countname="/home/fahai/cgi-bin/template/counts.txt";
 $logip=1;
 $ipname="/home/fahai/cgi-bin/template/ipdata.txt";
