@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl 
 use Mail::Sendmail;
                     # unattended Mail::Sendmail test, sends a message to the author
                     # but you probably want to change $mail{To} below
@@ -11,9 +11,9 @@ use Mail::Sendmail;
 
                     # if you change your mail server, you may need to change the From:
                     # address below.
-                    $mail{From} = 'ÎÀÀû<fahai@163bj.com>';
+                    $mail{From} = 'å«åˆ©<fahai@163bj.com>';
 
-                    $mail{To}   = '·¨º£<bangzhu@fahai.com.cn>';
+                    $mail{To}   = 'æ³•æµ·<bangzhu@fahai.com.cn>';
                     #$mail{To}   = 'Sendmail Test <sendmail@alma.ch>, You me@myaddress';
 
                     # if you want to get a copy of the test mail, you need to specify your
@@ -86,7 +86,7 @@ my $mt = Text::MetaText->new(\%mtparam);
 
 #connet to database,get database handler
 my $dbh = DBI->connect(@dbiparam) || 
-	print "²»ÄÜÁ¬½Óµ½Êı¾İ¿â£¡" && return;
+	print "ä¸èƒ½è¿æ¥åˆ°æ•°æ®åº“ï¼" && return;
  
 #get CGI params
 my %param;
@@ -117,7 +117,7 @@ sub main
 	elsif($typ eq '3') {
                 &modifyLaw($param);}
         else {
-		print "´íÎóÖ¸Áî!!";}	
+		print "é”™è¯¯æŒ‡ä»¤!!";}	
 }
 
 
@@ -284,12 +284,12 @@ sub sendLawInfo
     my $content = (!defined($param->{'content'}))?"":$param->{'content'};
   
         #the specified email box^M
-  $mail{Subject} ="ÏêÏ¸ÄÚÈİ¸üĞÂ\n";
-  $mail{Message} ="·¨ÂÉÁìÓò:$area\n";
-  $mail{Message}.="·¨ÂÉÃû³Æ:$type\n";
-  $mail{Message}.="ÎÊÌâÀà±ğ:$title\n";
-  $mail{Message}.="ÕıÎÄ¹Ø¼ü×Ö:$keyword\n";
-  $mail{Message}.="Õı¡¡¡¡ÎÄ:$content\n";
+  $mail{Subject} ="è¯¦ç»†å†…å®¹æ›´æ–°\n";
+  $mail{Message} ="æ³•å¾‹é¢†åŸŸ:$area\n";
+  $mail{Message}.="æ³•å¾‹åç§°:$type\n";
+  $mail{Message}.="é—®é¢˜ç±»åˆ«:$title\n";
+  $mail{Message}.="æ­£æ–‡å…³é”®å­—:$keyword\n";
+  $mail{Message}.="æ­£ã€€ã€€æ–‡:$content\n";
 if (sendmail %mail) {
  #print "content of \$Mail::Sendmail::log:\n$Mail::Sendmail::log\n";
   if ($Mail::Sendmail::error)
@@ -334,24 +334,24 @@ sub sendLawyerInfo
         my $remark = (!defined($param->{'remark'}))?"":$param->{'remark'};
 
 	#the specified email box
-$mail{Subject} ="ÂÉÊ¦ĞÅÏ¢¸üĞÂ\n";
-$mail{Message} ="ĞÕÃû:$name\n";
-$mail{Message}.="Ê¡/Ö±Ï½ÊĞ:$province\n";
-$mail{Message}.="ÊĞ/ÏØ:$city\n";
-$mail{Message}.="µØÖ·:$address\n";
-$mail{Message}.="ÓÊ±à:$zipcode\n";
-$mail{Message}.="µç»°:$areacode-$tel\n";
-$mail{Message}.="´«Õæ:$areacode-$fax\n";
-$mail{Message}.="ÊÖ»ú:$mobile\n";
-$mail{Message}.="µç×ÓĞÅÏä1:$email1\n";
-$mail{Message}.="µç×ÓĞÅÏä2:$email2\n";
-$mail{Message}.="ÍøÕ¾:$website\n";
-$mail{Message}.="·¨ÂÉÁìÓò:$area\n";
-$mail{Message}.="ÂÉÊ¦Ö´ÒµÖ¤ºÅ:$serial\n";
-$mail{Message}.="Ö´Òµ»ú¹¹Ãû³Æ:$lawoffice\n";
-$mail{Message}.="ÓïÑÔ:$language\n";
-$mail{Message}.="ÂÉÊ¦Ö´ÒµÖ¤È¡µÃÈÕÆÚ:$authdate\n";
-$mail{Message}.="±¸×¢:$remark\n";
+$mail{Subject} ="å¾‹å¸ˆä¿¡æ¯æ›´æ–°\n";
+$mail{Message} ="å§“å:$name\n";
+$mail{Message}.="çœ/ç›´è¾–å¸‚:$province\n";
+$mail{Message}.="å¸‚/å¿:$city\n";
+$mail{Message}.="åœ°å€:$address\n";
+$mail{Message}.="é‚®ç¼–:$zipcode\n";
+$mail{Message}.="ç”µè¯:$areacode-$tel\n";
+$mail{Message}.="ä¼ çœŸ:$areacode-$fax\n";
+$mail{Message}.="æ‰‹æœº:$mobile\n";
+$mail{Message}.="ç”µå­ä¿¡ç®±1:$email1\n";
+$mail{Message}.="ç”µå­ä¿¡ç®±2:$email2\n";
+$mail{Message}.="ç½‘ç«™:$website\n";
+$mail{Message}.="æ³•å¾‹é¢†åŸŸ:$area\n";
+$mail{Message}.="å¾‹å¸ˆæ‰§ä¸šè¯å·:$serial\n";
+$mail{Message}.="æ‰§ä¸šæœºæ„åç§°:$lawoffice\n";
+$mail{Message}.="è¯­è¨€:$language\n";
+$mail{Message}.="å¾‹å¸ˆæ‰§ä¸šè¯å–å¾—æ—¥æœŸ:$authdate\n";
+$mail{Message}.="å¤‡æ³¨:$remark\n";
 if (sendmail %mail) {
  #print "content of \$Mail::Sendmail::log:\n$Mail::Sendmail::log\n";
   if ($Mail::Sendmail::error)
@@ -504,25 +504,25 @@ sub sendLawOfficeInfo
 	
 	#the specified email box
        
-        $mail{Subject} ="ÂÉÊ¦ËùĞÅÏ¢¸üĞÂ\n";
-        $mail{Message} ="Ãû³Æ:$name\n";
-        $mail{Message}.="¼ò³Æ:$sname\n";
-        $mail{Message}.="Ê¡/Ö±Ï½ÊĞ:$province\n";
-        $mail{Message}.="ÊĞ/ÏØ:$city\n";
-        $mail{Message}.="µØÖ·:$address\n";
-        $mail{Message}.="ÓÊ±à:$zipcode\n";
-        $mail{Message}.="µç»°:$areacode-$tel\n";
-        $mail{Message}.="´«Õæ:$areacode-$fax\n";
-        $mail{Message}.="ÊÖ»ú:$mobile\n";
-        $mail{Message}.="µç×ÓĞÅÏä1:$email1\n";
-        $mail{Message}.="µç×ÓĞÅÏä2:$email2\n";
-        $mail{Message}.="ÍøÕ¾:$website\n";
-        $mail{Message}.="·¨ÂÉÁìÓò:$area\n";
-        $mail{Message}.="ÂÉÊ¦Ö´ÒµÖ¤ºÅ:$serial\n";
-        $mail{Message}.="Ö´Òµ»ú¹¹Ãû³Æ:$lawoffice\n";
-        $mail{Message}.="ÓïÑÔ:$language\n";
-        $mail{Message}.="ÂÉÊ¦Ö´ÒµÖ¤È¡µÃÈÕÆÚ:$authdate\n";
-        $mail{Message}.="±¸×¢:$remark\n";
+        $mail{Subject} ="å¾‹å¸ˆæ‰€ä¿¡æ¯æ›´æ–°\n";
+        $mail{Message} ="åç§°:$name\n";
+        $mail{Message}.="ç®€ç§°:$sname\n";
+        $mail{Message}.="çœ/ç›´è¾–å¸‚:$province\n";
+        $mail{Message}.="å¸‚/å¿:$city\n";
+        $mail{Message}.="åœ°å€:$address\n";
+        $mail{Message}.="é‚®ç¼–:$zipcode\n";
+        $mail{Message}.="ç”µè¯:$areacode-$tel\n";
+        $mail{Message}.="ä¼ çœŸ:$areacode-$fax\n";
+        $mail{Message}.="æ‰‹æœº:$mobile\n";
+        $mail{Message}.="ç”µå­ä¿¡ç®±1:$email1\n";
+        $mail{Message}.="ç”µå­ä¿¡ç®±2:$email2\n";
+        $mail{Message}.="ç½‘ç«™:$website\n";
+        $mail{Message}.="æ³•å¾‹é¢†åŸŸ:$area\n";
+        $mail{Message}.="å¾‹å¸ˆæ‰§ä¸šè¯å·:$serial\n";
+        $mail{Message}.="æ‰§ä¸šæœºæ„åç§°:$lawoffice\n";
+        $mail{Message}.="è¯­è¨€:$language\n";
+        $mail{Message}.="å¾‹å¸ˆæ‰§ä¸šè¯å–å¾—æ—¥æœŸ:$authdate\n";
+        $mail{Message}.="å¤‡æ³¨:$remark\n";
         if (sendmail %mail) {
          #print "content of \$Mail::Sendmail::log:\n$Mail::Sendmail::log\n";
           if ($Mail::Sendmail::error)
